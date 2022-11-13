@@ -3,11 +3,6 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Jost", sans-serif;
+  /* font-family: "Jost", sans-serif; */
   box-sizing: border-box;
-}
-
-.swiper {
-  width: 600px;
-  height: 300px;
 }

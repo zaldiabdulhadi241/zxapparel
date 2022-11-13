@@ -1,7 +1,8 @@
 <?php
 include "../validateAdmin.php";
+include "../../../controllers/connect.php";
+$result = show('products', "kategori='T-Shirt'");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,6 +99,8 @@ include "../validateAdmin.php";
                     <span>Accesories</span>
                 </a>
             </li>
+
+            <li class="nav-item mt-5"><a href="../../../controllers/logout.php" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a></li>
         </ul>
         <!-- End of Sidebar -->
 
@@ -124,18 +127,20 @@ include "../validateAdmin.php";
                                     <thead>
                                         <tr>
                                             <th>Id Produk</th>
-                                            <th>Foto Produk</th>
+                                            <th>Gambar Produk</th>
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Foto Produk</td>
-                                            <td>Tote Bag Keren</td>
-                                            <td>Rp. 50.0000</td>
-                                        </tr>
+                                        <?php while ($row = mysqli_fetch_array($result)) : ?>
+                                            <tr>
+                                                <td><?= $row['id_produk'] ?></td>
+                                                <td><img src="../../../images/<?= $row['gambar_produk'] ?>" width="120px"></td>
+                                                <td><?= $row['nama_produk'] ?></td>
+                                                <td>Rp. <?= number_format($row['harga_produk']) ?></td>
+                                            </tr>
+                                        <?php endwhile ?>
                                     </tbody>
                                 </table>
                             </div>

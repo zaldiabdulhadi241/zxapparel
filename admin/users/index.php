@@ -97,14 +97,14 @@ $users = showAll('users');
                 </a>
             </li>
             <!-- Nav Item - Accesories Collapse Menu -->
-            <li class="nav-item mb-5">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="../products/accesories/">
                     <i class="fa-solid fa-headphones"></i>
                     <span>Accesories</span>
                 </a>
             </li>
 
-            <li class="nav-item"><a href="../../controllers/logout.php" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a></li>
+            <li class="nav-item mt-5"><a href="../../controllers/logout.php" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a></li>
         </ul>
         <!-- End of Sidebar -->
 
