@@ -6,7 +6,7 @@ $logoPath = "images/brand-logo-white.png"
 <script src="https://kit.fontawesome.com/92b154d120.js" crossorigin="anonymous"></script>
 
 <!-- Navigation Start -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark jus">
     <div class="container">
         <a class="navbar-brand" href="">
             <img src=<?php echo $logoPath ?> style="width: 150px" />
@@ -47,14 +47,3 @@ $logoPath = "images/brand-logo-white.png"
     </div>
 </nav>
 <!-- Navigation End -->
-
-<script>
-    const navItem = document.querySelectorAll('.nav-item');
-    console.log(navItem);
-    navItem.forEach((item) => {
-        item.addEventListener('click', () => {
-            item[0].classList.add('active');
-            console.log(item);
-        })
-    })
-</script>

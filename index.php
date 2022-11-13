@@ -102,31 +102,31 @@ include "./utilities/header-links.php"
     <div class="container py-3">
         <h1 class="text-center">Category</h1>
         <div class="row row-cols-4 py-5 justify-content-center">
-            <div class="card mb-5 mx-4 p-2">
+            <div class="card mb-5 mx-4 p-2 shadow-sm border-0">
                 <img src="images/img-placeholder (1).png" alt="" class="card-img" />
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                     <div class="card-title fw-bold fs-1 text-light">T-Shirts</div>
                 </div>
             </div>
-            <div class="card mb-5 mx-4 p-2">
+            <div class="card mb-5 mx-4 p-2 shadow-sm border-0">
                 <img src="images/img-placeholder (1).png" alt="" class="card-img" />
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                     <div class="card-title fw-bold fs-1 text-light">Hoodies</div>
                 </div>
             </div>
-            <div class="card mb-5 mx-4 p-2">
+            <div class="card mb-5 mx-4 p-2 shadow-sm border-0">
                 <img src="images/img-placeholder (1).png" alt="" class="card-img" />
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                     <div class="card-title fw-bold fs-1 text-light">Pants</div>
                 </div>
             </div>
-            <div class="card mb-5 mx-4 p-2">
+            <div class="card mb-5 mx-4 p-2 shadow-sm border-0">
                 <img src="images/img-placeholder (1).png" alt="" class="card-img" />
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                     <div class="card-title fw-bold fs-1 text-light">Tote Bag</div>
                 </div>
             </div>
-            <div class="card mb-5 mx-4 p-2">
+            <div class="card mb-5 mx-4 p-2 shadow-sm border-0">
                 <img src="images/img-placeholder (1).png" alt="" class="card-img" />
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                     <div class="card-title fw-bold fs-1 text-light">Accesories</div>

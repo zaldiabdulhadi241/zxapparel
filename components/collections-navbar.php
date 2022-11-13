@@ -2,10 +2,13 @@
 session_start();
 ?>
 
+<!-- Links -->
+<link rel="stylesheet" href="../../style/pages-title.css">
+
 <script src="https://kit.fontawesome.com/92b154d120.js" crossorigin="anonymous"></script>
 
 <!-- Navigation Start -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="../../">
             <img src="../../images/brand-logo-white.png" style="width: 150px" />
@@ -40,7 +43,7 @@ session_start();
                 <a href="../zxapparel/auth/register/" class="nav-link">Register</a>
             <?php else : ?>
                 <a href="" class="nav-link"><i class="fa-solid fa-cart-shopping text-white"></i></a>
-                <a href="./controllers/logout.php" class="nav-link">Logout</a>
+                <a href="../../controllers/logout.php" class="nav-link">Logout</a>
             <?php endif ?>
         </div>
     </div>

@@ -2,10 +2,21 @@
 $dbname = "zxapparel";
 $koneksi = mysqli_connect('localhost', 'root', '', $dbname);
 
+
+
 function show($tableName, $where)
 {
     global $koneksi;
     $query = "SELECT * FROM $tableName WHERE $where";
+    $result = mysqli_query($koneksi, $query);
+
+    return $result;
+}
+
+function showAll($tableName)
+{
+    global $koneksi;
+    $query = "SELECT * FROM $tableName";
     $result = mysqli_query($koneksi, $query);
 
     return $result;

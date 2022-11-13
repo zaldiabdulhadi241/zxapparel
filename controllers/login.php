@@ -19,13 +19,32 @@ if (isset($_POST['login'])) {
         exit;
     }
 
+    if (empty($password)) {
+        $err = "Masukkan Password Terlebih Dahulu";
+        header('location:../auth/login?err=' . $err);
+        exit;
+    }
+
+    if ($username !== $result['username']) {
+        $err = "Username Tidak Ditemukan";
+        header('location:../auth/login?err=' . $err);
+        exit;
+    }
+
     if (mysqli_num_rows($count) === 1) {
         $validate = password_verify($password, $result['password']);
+
         // Cek Password
         if ($validate) {
-            header("location:../");
-            $_SESSION['login'] = true;
-            exit;
+            if ($result['role'] === 'admin') {
+                $_SESSION['login'] = true;
+                $_SESSION['role'] = 'admin';
+                header("location:../admin/");
+            } else {
+                $_SESSION['login'] = true;
+                $_SESSION['role'] = 'user';
+                header("location:../");
+            }
         } else {
             $err .= "Password Yang Anda Masukkan Salah";
             header('location:../auth/login?err=' . $err);

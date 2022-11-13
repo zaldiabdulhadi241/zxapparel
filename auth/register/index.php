@@ -38,7 +38,11 @@ include "../../utilities/header-title.php";
                         <input name="password" type="password" class="form-control mb-3 p-3" placeholder="Password">
                         <input name="confirmPassword" type="password" class="form-control mb-3 p-3" placeholder="Confirm Password">
                         <button name="register" class="btn btn-primary btn-login text-uppercase fw-bold w-100 mt-3 p-3 mb-4" type="submit">Register</button>
-                        <span class="text-dark text-center d-block">Already have an account? <a href="../../auth/login/" class="text-primary text-decoration-none">Login.</a></span>
+                        <span class="text-dark text-center d-block mb-3">Already have an account? <a href="../../auth/login/" class="text-primary text-decoration-none">Login.</a></span>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <input type="checkbox" name="adminCheck" value="admin" class="me-2">
+                            <span>Register Sebagai Admin</span>
+                        </div>
                     </form>
                 </div>
             </div>
