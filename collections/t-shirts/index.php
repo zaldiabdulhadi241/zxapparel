@@ -4,7 +4,7 @@
 <?php $title = "T-Shirts";
 include "../../utilities/header-title.php";
 include "../../controllers/connect.php";
-$result = show('products', "kategori = 'T-Shirt'");
+$result = show('products', "kategori = 'T-Shirts'");
 ?>
 
 <body>
@@ -19,19 +19,23 @@ $result = show('products', "kategori = 'T-Shirt'");
         <div class="container px-4 px-lg-5 mt-5">
             <h1 class="my-5">Discover</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php while ($row = mysqli_fetch_array($result)) : ?>
+                <?php while ($produk = mysqli_fetch_array($result)) : ?>
                     <div class="col mb-5">
-                        <div class="card h-100 border-0 shadow-sm rounded-3 cursor-pointer">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="../../images/<?= $row['gambar_produk'] ?>" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <!-- Product name-->
-                                <h5><?= $row['nama_produk'] ?></h5>
-                                <!-- Product price-->
-                                <div class="text-info">Rp. <?= number_format($row['harga_produk']) ?></div>
+                        <a href="../products?variant=<?= $produk['id_produk'] ?>" class="text-decoration-none text-dark">
+                            <div class="card h-100 border-0 shadow-sm rounded-3">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="../../images/<?= $produk['gambar_produk'] ?>" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="">
+                                        <!-- Product name-->
+                                        <h5 class=""><?= $produk['nama_produk']  ?></h5>
+                                        <!-- Product price-->
+                                        <div class="text-info">Rp. <?= number_format($produk['harga_produk']) ?></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 <?php endwhile ?>
             </div>

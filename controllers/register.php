@@ -50,10 +50,12 @@ if (isset($_POST['register'])) {
     $result = mysqli_fetch_array(show("users", "username = '$username'"));
 
 
-    if ($email === $result['email']) {
-        $err .= "Email Telah Digunakan";
-        header('location:../auth/register?err=' . $err);
-        exit;
+    if (isset($result['email'])) {
+        if ($email === $result['email']) {
+            $err .= "Email Telah Digunakan";
+            header('location:../auth/register?err=' . $err);
+            exit;
+        }
     }
 
     if (empty($result['username'])) {
@@ -61,10 +63,14 @@ if (isset($_POST['register'])) {
         if ($role === 'admin') {
             $_SESSION['login'] = true;
             $_SESSION['role'] = 'admin';
+            $_SESSION['id_user'] = $result['id_user'];
+            sleep(2);
             header("location:../admin/");
         } else {
             $_SESSION['login'] = true;
+            $_SESSION['id_user'] = $result['id_user'];
             $_SESSION['role'] = 'user';
+            sleep(2);
             header("location:../");
         }
         exit;

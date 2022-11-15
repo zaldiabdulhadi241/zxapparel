@@ -39,10 +39,14 @@ if (isset($_POST['login'])) {
             if ($result['role'] === 'admin') {
                 $_SESSION['login'] = true;
                 $_SESSION['role'] = 'admin';
+                $_SESSION['id_user'] = $result['id_user'];
+                sleep(2);
                 header("location:../admin/");
             } else {
                 $_SESSION['login'] = true;
                 $_SESSION['role'] = 'user';
+                $_SESSION['id_user'] = $result['id_user'];
+                sleep(2);
                 header("location:../");
             }
         } else {

@@ -1,17 +1,14 @@
 <?php
 include "../validateAdmin.php";
-
-
 include "../../../controllers/connect.php";
-$result = show('products', "kategori='Accesories' AND id_user='$id'");
-
+$result = show('products', "id_user='$id'");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <?php
-$title = "Accesories";
+$title = "All Products";
 include "../../utilities/header.php";
 ?>
 
@@ -47,9 +44,10 @@ include "../../utilities/header.php";
                 Products
             </div>
 
+
             <!-- Nav Item - T-Shirt Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../allproducts/">
+                <a class="nav-link collapsed" href="#">
                     <i class="fa-solid fa-shirt"></i>
                     <span>All Products</span>
                 </a>
@@ -107,7 +105,7 @@ include "../../utilities/header.php";
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800 py-4"><?= $title ?></h1>
+                    <h1 class="h3 mb-2 text-gray-800 py-4">T - Shirts</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -123,6 +121,7 @@ include "../../utilities/header.php";
                                             <th>Gambar Produk</th>
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
+                                            <th>Kategori</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -136,6 +135,7 @@ include "../../utilities/header.php";
                                                 <td><img src="../../../images/<?= $row['gambar_produk'] ?>" width="120px"></td>
                                                 <td><?= $row['nama_produk'] ?></td>
                                                 <td>Rp. <?= number_format($row['harga_produk']) ?></td>
+                                                <td><a href="../<?= str_replace(' ', '', strtolower($row['kategori'])) ?>"><?= $row['kategori'] ?></a></td>
                                                 <td><a href="../manage/edit/?id=<?= $produkId ?>">Edit</a> | <a id="#card-hover" class="text-primary" onclick="confirmCheck()" style="cursor: pointer;">Delete</a></td>
                                             </tr>
                                         <?php endwhile ?>

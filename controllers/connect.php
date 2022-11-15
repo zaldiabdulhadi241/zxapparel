@@ -25,8 +25,35 @@ function showAll($tableName)
 function postRegister($tableName, $username, $email, $password, $confirmPassword, $role)
 {
     global $koneksi;
-    $query = "INSERT INTO $tableName(`id_user`, `username`, `email`, `password`, `confirm_password`, `role`) VALUES ('','$username','$email','$password','$confirmPassword','$role')";
+    $id = time() % 10000;
+    $query = "INSERT INTO $tableName(`id_user`, `username`, `email`, `password`, `confirm_password`, `role`) VALUES ('$id','$username','$email','$password','$confirmPassword','$role')";
 
+    $result = mysqli_query($koneksi, $query);
+    return $result;
+}
+
+function postProduct($tableName, $nama_produk, $harga_produk, $deskripsi_produk, $kategori, $gambar_produk, $id_user)
+{
+    global $koneksi;
+    $id = time() % 10000;
+    $query = "INSERT INTO `$tableName`(`id_produk`, `nama_produk`, `harga_produk`, `deskripsi_produk`, `gambar_produk`, `kategori`, `id_user`) VALUES ($id,'$nama_produk','$harga_produk','$deskripsi_produk','$gambar_produk','$kategori','$id_user')";
+
+    $result = mysqli_query($koneksi, $query);
+    return $result;
+}
+
+function editProduct($tableName, $nama_produk, $harga_produk, $deskripsi_produk, $gambar_produk, $kategori, $where)
+{
+    global $koneksi;
+    $query = "UPDATE `$tableName` SET `nama_produk`='$nama_produk',`harga_produk`='$harga_produk',`deskripsi_produk`='$deskripsi_produk',`gambar_produk`='$gambar_produk',`kategori`='$kategori' WHERE $where";
+    $result = mysqli_query($koneksi, $query);
+    return $result;
+}
+
+function delete($tableName, $where)
+{
+    global $koneksi;
+    $query = "DELETE FROM `$tableName` WHERE $where";
     $result = mysqli_query($koneksi, $query);
     return $result;
 }

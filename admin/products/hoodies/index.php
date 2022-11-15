@@ -3,33 +3,17 @@ include "../validateAdmin.php";
 
 
 include "../../../controllers/connect.php";
-$result = show('products', "kategori='Hoodies'");
+$result = show('products', "kategori='Hoodies' AND id_user='$id'");
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Zx Apparel - Hoodies</title>
-
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Font Aweasome & Ionicons -->
-    <script src="https://kit.fontawesome.com/92b154d120.js" crossorigin="anonymous"></script>
-
-
-</head>
+<?php
+$title = "Hoodies";
+include "../../utilities/header.php";
+?>
 
 <body id="page-top">
 
@@ -62,6 +46,14 @@ $result = show('products', "kategori='Hoodies'");
             <div class="sidebar-heading">
                 Products
             </div>
+
+            <!-- Nav Item - T-Shirt Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../allproducts/">
+                    <i class="fa-solid fa-shirt"></i>
+                    <span>All Products</span>
+                </a>
+            </li>
 
 
             <!-- Nav Item - T-Shirt Collapse Menu -->
@@ -116,12 +108,12 @@ $result = show('products', "kategori='Hoodies'");
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800 py-4">Hoodies</h1>
+                    <h1 class="h3 mb-2 text-gray-800 py-4"><?= $title ?></h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Dashboard Hoodies</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Dashboard <?= $title ?></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -129,18 +121,23 @@ $result = show('products', "kategori='Hoodies'");
                                     <thead>
                                         <tr>
                                             <th>Id Produk</th>
-                                            <th>Foto Produk</th>
+                                            <th>Gambar Produk</th>
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while ($row = mysqli_fetch_array($result)) : ?>
+                                            <?php
+                                            $produkId = $row['id_produk'];
+                                            ?>
                                             <tr>
                                                 <td><?= $row['id_produk'] ?></td>
                                                 <td><img src="../../../images/<?= $row['gambar_produk'] ?>" width="120px"></td>
                                                 <td><?= $row['nama_produk'] ?></td>
                                                 <td>Rp. <?= number_format($row['harga_produk']) ?></td>
+                                                <td><a href="../manage/edit/?id=<?= $produkId ?>">Edit</a> | <a id="#card-hover" class="text-primary" onclick="confirmCheck()" style="cursor: pointer;">Delete</a></td>
                                             </tr>
                                         <?php endwhile ?>
                                     </tbody>
@@ -151,10 +148,13 @@ $result = show('products', "kategori='Hoodies'");
 
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
+            <!-- Button -->
+            <div class="w-100 d-flex position-fixed justify-content-end align-items-end" style="bottom: 40px; right: 20px;">
+                <a href="../manage/addproduct/" class="btn btn-circle btn-primary btn-lg"><i class="fa-solid fa-plus"></i></a>
+            </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -164,6 +164,18 @@ $result = show('products', "kategori='Hoodies'");
                 </div>
             </footer>
             <!-- End of Footer -->
+
+            <script>
+                const confirmCheck = () => {
+                    confirm = confirm("Yakin ingin menghapus?");
+                    if (confirm) {
+                        window.location.href = "../../../controllers/deleteproduct.php?id=<?php echo $produkId ?>";
+                    } else {
+                        window.location = "./";
+                    }
+                }
+            </script>
+
 
 </body>
 

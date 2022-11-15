@@ -23,6 +23,7 @@ include "../../utilities/header-title.php";
 <link rel="stylesheet" href="../../style/global.css" />
 <link rel="stylesheet" href="../../style/bootstrap.min.css" />
 
+
 <body>
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -35,7 +36,7 @@ include "../../utilities/header-title.php";
                     <form method="POST" action="../../controllers/login.php">
                         <input name="username" type="text" class="form-control mb-3 p-3" placeholder="Username">
                         <input name="password" type="password" class="form-control mb-3 p-3" placeholder="Password">
-                        <button name="login" class="btn btn-primary btn-login text-uppercase fw-bold w-100 mb-4 mt-3 p-3" type="submit">Login</button>
+                        <button name="login" class="btn btn-primary btn-login text-uppercase fw-bold w-100 mb-4 mt-3 p-3 alert-handle" type="submit">Login</button>
                         <span class="text-dark text-center d-block">Don't Have an Account? <a href="../../auth/register/" class="text-primary text-decoration-none">Register here.</a></span>
                     </form>
                 </div>
